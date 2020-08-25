@@ -1,0 +1,15 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+    {% for task in tasks %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2">Task Assigned To: {{ task.assigned_to }}</a>
+              <small class="text-muted">Task Created: {{ task.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'task-detail' task.id %}">Task Title: {{ task.title }}</a></h2>
+            <p class="article-content">Completed: {{ task.completed }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
